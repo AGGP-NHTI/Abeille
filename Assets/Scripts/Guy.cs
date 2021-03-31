@@ -34,8 +34,6 @@ public class Guy : MonoBehaviour
         {
             RB.AddForce(new Vector2(-1, 0));
             Legs.Walk(feet, 1);
-
-
         }
 
     }
@@ -43,7 +41,6 @@ public class Guy : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Grounded = true;
-        Debug.Log("landed");
     }
     public void OnCollisionExit2D(Collision2D collision)
     {
