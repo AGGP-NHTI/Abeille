@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Legs : MonoBehaviour
+public class ShoeBase : MonoBehaviour
 {
     public Transform foot1;
     public Transform foot2;
