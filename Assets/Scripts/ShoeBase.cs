@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Legs : MonoBehaviour
+public class ShoeBase : MonoBehaviour
 {
     public Transform foot1;
     public Transform foot2;
@@ -22,6 +22,6 @@ public class Legs : MonoBehaviour
 
     public void Walk(GameObject feets,float direction)
     {
-        feets.transform.Rotate(new Vector3 (0,0,4f * direction));
+        feets.transform.Rotate(new Vector3 (0,0,2.5f * direction));
     }
 }
