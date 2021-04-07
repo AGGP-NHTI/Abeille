@@ -9,6 +9,7 @@ public class Guy : MonoBehaviour
     public GameObject Hand;
     public GameObject Torso;
     public GameObject Legs;
+    public GameObject legaimer;
     public GameObject ShoePrefab;
     public GameObject GunPrefab;
 
@@ -34,7 +35,14 @@ public class Guy : MonoBehaviour
     void Update()
     {
         UpdateArmsandFacing();
+        getInputs();
 
+
+
+    }
+
+    public void getInputs()
+    {
         if (Input.GetKeyDown(KeyCode.W) && Grounded)
         {
             RB.AddForce(new Vector2(0, 200));
@@ -50,19 +58,27 @@ public class Guy : MonoBehaviour
             RB.AddForce(new Vector2(-2, 0));
             feetinstance.Walk(ShoePrefab, 1 * facingH.x);
         }
-
     }
 
     public void UpdateArmsandFacing()
     {
+        //update legs
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        legaimer.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //update arms
+        Vector3 pos2 = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 dir2 = Input.mousePosition - pos;
+        float angle2 = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Arms.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+
         BSpawnLocal = Hand.transform.position - Arms.transform.position;
+
+        //facing
         facingH.x = GetSign(BSpawnLocal.x);
         facingV.y = GetSign(BSpawnLocal.x);
-
         Head.transform.localScale = facingH;
         Legs.transform.localScale = facingH;
         Torso.transform.localScale = facingH;

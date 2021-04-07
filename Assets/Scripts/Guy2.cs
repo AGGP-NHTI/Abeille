@@ -11,7 +11,7 @@ public class Guy2 : MonoBehaviour
     Rigidbody2D RB;
     BoxCollider2D col;
     bool grounded;
-    Legs Legs;
+    ShoeBase Legs;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class Guy2 : MonoBehaviour
         RB = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<BoxCollider2D>();
         grounded = false;
-        Legs = feet.GetComponent<Legs>();
+        Legs = feet.GetComponent<ShoeBase>();
     }
 
     // Update is called once per frame
