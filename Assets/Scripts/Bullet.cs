@@ -21,6 +21,9 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if(!collision.gameObject.GetComponent<Bullet>())
+        {
+            Destroy(gameObject);
+        }
     }
 }
