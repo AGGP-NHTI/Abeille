@@ -15,8 +15,15 @@ public class Uzi : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= firetimer + firedelay)
         {
             firetimer = Time.time;
-            var b = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
-            Destroy(b, 2f);
+            Fire();
         }
+    }
+
+
+
+    public void Fire()
+    {
+        var b = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
+        Destroy(b, 2f);
     }
 }

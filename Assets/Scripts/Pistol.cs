@@ -8,12 +8,17 @@ public class Pistol : MonoBehaviour
     public GameObject BSpawn;
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            var b = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
-            Destroy(b, 2f);
+            Fire();
         }
+    }
+
+    public virtual void Fire()
+    {
+        var b = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
+        Destroy(b, 2f);
     }
 }
