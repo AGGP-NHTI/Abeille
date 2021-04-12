@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Guy : MonoBehaviour
 {
+    public float health;
+
+    public bool dummy;
+
     public GameObject Head;
     public GameObject Arms;
     public GameObject Hand;
@@ -13,9 +17,15 @@ public class Guy : MonoBehaviour
     public GameObject ShoePrefab;
     public GameObject GunPrefab;
 
+
+    public GameObject GunHolder;
+    public List<GameObject> guns;
+    public GameObject activegun;
+    public int gunindex;
+
     public Vector3 BSpawnLocal;
 
-    public Vector3 facingH = Vector3.one;
+    Vector3 facingH = Vector3.one;
     public Vector3 facingV = Vector3.one;
 
     Rigidbody2D RB;
@@ -26,6 +36,7 @@ public class Guy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = 100;
         RB = gameObject.GetComponent<Rigidbody2D>();
         Grounded = false;
         feetinstance = ShoePrefab.GetComponent<ShoeBase>();
@@ -34,10 +45,22 @@ public class Guy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateArmsandFacing();
-        getInputs();
+        if(!dummy)
+        {
+            UpdateArmsandFacing();
+            getInputs();
+        }
 
 
+
+    }
+
+    public void updateGun()
+    {
+        Destroy(activegun);
+        activegun = Instantiate(guns[gunindex], GunHolder.transform.position, GunHolder.transform.rotation);
+        activegun.transform.parent = GunHolder.transform;
+        activegun.transform.localScale = new Vector3(1, 1, 1);
 
     }
 
@@ -45,7 +68,7 @@ public class Guy : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W) && Grounded)
         {
-            RB.AddForce(new Vector2(0, 200));
+            RB.AddForce(new Vector2(0, 300));
             Grounded = false;
         }
         if (Input.GetKey(KeyCode.D))
@@ -57,6 +80,34 @@ public class Guy : MonoBehaviour
         {
             RB.AddForce(new Vector2(-2, 0));
             feetinstance.Walk(ShoePrefab, 1 * facingH.x);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if(gunindex > 0)
+            {
+                gunindex -= 1;
+            }
+            else
+            {
+                gunindex = 3;
+            }
+
+            updateGun();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (gunindex < 3)
+            {
+                gunindex += 1;
+            }
+            else
+            {
+                gunindex = 0;
+            }
+
+
+            updateGun();
         }
     }
 
