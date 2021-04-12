@@ -147,11 +147,21 @@ public class Guy : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Grounded = true;
+        if (collision.gameObject.GetComponent<Bullet>())
+        {
+            health -= 5;
+        }
+        if (collision.gameObject.GetComponent<Ground>())
+        {
+            Grounded = true;
+        }
     }
     public void OnCollisionExit2D(Collision2D collision)
     {
-        Grounded = false;
+        if (collision.gameObject.GetComponent<Ground>())
+        {
+            Grounded = false;
+        }
     }
 
 
