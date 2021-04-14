@@ -6,6 +6,7 @@ public class ShoeBase : MonoBehaviour
 {
     public GameObject foot1;
     public GameObject foot2;
+    public Guy guy;
 
     public GameObject kickspawn;
     public GameObject footHolder;
@@ -26,7 +27,8 @@ public class ShoeBase : MonoBehaviour
     {
         Kick();
 
-
+        foot1 = guy.activeshoesL;
+        foot2 = guy.activeshoesR;
 
 
 

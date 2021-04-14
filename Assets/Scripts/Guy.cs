@@ -23,9 +23,11 @@ public class Guy : MonoBehaviour
     public GameObject activegun;
     public int gunindex;
 
-    public GameObject ShoeHolder;
+    public GameObject ShoeHolderL;
+    public GameObject ShoeHolderR;
     public List<GameObject> shoes;
-    public GameObject activeshoes;
+    public GameObject activeshoesL;
+    public GameObject activeshoesR;
     public int shoeindex;
 
 
@@ -68,8 +70,25 @@ public class Guy : MonoBehaviour
         activegun = Instantiate(guns[gunindex], GunHolder.transform.position, GunHolder.transform.rotation);
         activegun.transform.parent = GunHolder.transform;
         activegun.transform.localScale = new Vector3(1, 1, 1);
-
     }
+    public void updateShoe()
+    {
+        Destroy(activeshoesL);
+        Destroy(activeshoesR);
+        activeshoesL = Instantiate(shoes[shoeindex], ShoeHolderL.transform.position, ShoeHolderL.transform.rotation);
+        activeshoesR = Instantiate(shoes[shoeindex], ShoeHolderR.transform.position, ShoeHolderR.transform.rotation);
+        activeshoesL.transform.parent = ShoeHolderL.transform;
+        activeshoesR.transform.parent = ShoeHolderR.transform;
+        activeshoesL.transform.localScale = new Vector3(5, 5, 1);
+        activeshoesR.transform.localScale = new Vector3(5, 5, 1);
+
+        SpriteRenderer SR;
+        SR = activeshoesL.GetComponent<SpriteRenderer>();
+        SR.sortingOrder = 1;
+        SR = activeshoesL.GetComponent<SpriteRenderer>();
+        SR.sortingOrder = 3;
+    }
+
 
     public void getInputs()
     {
@@ -91,16 +110,16 @@ public class Guy : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if(gunindex > 0)
+            if(shoeindex < 2)
             {
-                gunindex -= 1;
+                shoeindex += 1;
             }
             else
             {
-                gunindex = 3;
+                shoeindex = 0;
             }
 
-            updateGun();
+            updateShoe();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -130,7 +149,6 @@ public class Guy : MonoBehaviour
         Vector3 dir2 = Input.mousePosition - pos;
         float angle2 = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Arms.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
 
         BSpawnLocal = Hand.transform.position - Arms.transform.position;
 
@@ -170,6 +188,4 @@ public class Guy : MonoBehaviour
             Grounded = false;
         }
     }
-
-
 }
