@@ -29,7 +29,10 @@ public class Guy : MonoBehaviour
     public GameObject activeshoesR;
     public int shoeindex;
 
+    public LayerMask groundLayer;
+    public Color rayColor;
 
+    CapsuleCollider2D col;
 
     public Vector3 BSpawnLocal;
 
@@ -46,6 +49,7 @@ public class Guy : MonoBehaviour
     {
         health = 100;
         RB = gameObject.GetComponent<Rigidbody2D>();
+        col = gameObject.GetComponent<CapsuleCollider2D>();
         Grounded = false;
         feetinstance = ShoePrefab.GetComponent<ShoeBase>();
     }
@@ -53,6 +57,8 @@ public class Guy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Grounded = IsGrounded();
+
         if(!dummy)
         {
             UpdateArmsandFacing();
@@ -179,20 +185,16 @@ public class Guy : MonoBehaviour
         {
             health -= 5;
         }
-        if (collision.gameObject.GetComponent<Ground>())
-        {
-            Grounded = true;
-        }
-    }
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<Ground>())
-        {
-            Grounded = false;
-        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
+    }
+
+    bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.1f, groundLayer);
+        Debug.DrawRay(col.bounds.center, Vector2.down * (col.bounds.extents.y + 0.1f), rayColor);
+        return hit.collider != null;
     }
 }

@@ -241,6 +241,10 @@ MonoBehaviour:
   activeshoesL: {fileID: 2859318271413338303}
   activeshoesR: {fileID: 2859318272524127700}
   shoeindex: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  rayColor: {r: 0, g: 0, b: 0, a: 0}
   BSpawnLocal: {x: 0, y: 0, z: 0}
   facingV: {x: 1, y: 1, z: 1}
 --- !u!50 &2859318271688509277
