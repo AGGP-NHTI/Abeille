@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foot1: {fileID: 7449609212546731111}
   foot2: {fileID: 7449609211444887820}
+  guy: {fileID: 0}
   kickspawn: {fileID: 2865775248802332348}
   footHolder: {fileID: 2865775249704887857}
   kickdelay: 0.5
@@ -220,7 +221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2865775249620539883
 Transform:
   m_ObjectHideFlags: 0
@@ -639,6 +640,12 @@ MonoBehaviour:
   - {fileID: 1392322541266516335, guid: 955622f927e4fb546a2c4d1f6aa85dc2, type: 3}
   activegun: {fileID: 5367198386676929017}
   gunindex: 0
+  ShoeHolderL: {fileID: 0}
+  ShoeHolderR: {fileID: 0}
+  shoes: []
+  activeshoesL: {fileID: 0}
+  activeshoesR: {fileID: 0}
+  shoeindex: 0
   BSpawnLocal: {x: 0, y: 0, z: 0}
   facingV: {x: 1, y: 1, z: 1}
 --- !u!61 &7449609211702527725

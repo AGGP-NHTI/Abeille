@@ -91,6 +91,7 @@ public class Guy : MonoBehaviour
 
     public void getInputs()
     {
+        //MOVEMENT
         if (Input.GetKeyDown(KeyCode.W) && Grounded)
         {
             RB.AddForce(new Vector2(0, 300));
@@ -107,6 +108,9 @@ public class Guy : MonoBehaviour
             feetinstance.Walk(ShoePrefab, 1 * facingH.x);
         }
 
+
+
+        //UPDATE EQUIPMENT
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if(shoeindex < 2)
@@ -188,9 +192,7 @@ public class Guy : MonoBehaviour
         }
     }
 
-
     public void OnTriggerEnter(Collider other)
     {
-        
     }
 }

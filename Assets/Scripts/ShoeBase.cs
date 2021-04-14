@@ -19,7 +19,6 @@ public class ShoeBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -53,12 +52,17 @@ public class ShoeBase : MonoBehaviour
         }
         if (kick)
         {
+            kickspawn.SetActive(true);
             foot2.transform.position = kickspawn.transform.position;
         }
         if (kick && Time.time >= kicktimer + kickdelay)
         {
             foot2.transform.position = footHolder.transform.position;
             kick = false;
+        }
+        if(!kick)
+        {
+            kickspawn.SetActive(false);
         }
     }
 }
