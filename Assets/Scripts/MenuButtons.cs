@@ -17,7 +17,7 @@ public class MenuButtons : MonoBehaviour
 
     public void ArenaTwo()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Arena2");
     }
 
     /*
