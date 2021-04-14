@@ -10,6 +10,11 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void ArenaOne()
+    {
+        SceneManager.LoadScene("Arena1");
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
