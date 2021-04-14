@@ -189,6 +189,9 @@ public class Guy : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.name == "KickSpawn")
+        {
+        }
     }
 
     bool IsGrounded()
