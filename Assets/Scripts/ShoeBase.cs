@@ -24,22 +24,11 @@ public class ShoeBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2") && kick == false)
-        {
-            Kick();
-        }
-        if(kick)
-        {
-            foot2.transform.position = kickspawn.transform.position;
-        }
-        if(kick && Time.time >= kicktimer + kickdelay)
-        {
-            foot2.transform.position = footHolder.transform.position;
-            kick = false;
-        }
+        Kick();
 
 
-        
+
+
 
 
 
@@ -55,7 +44,19 @@ public class ShoeBase : MonoBehaviour
 
     public void Kick()
     {
-        kicktimer = Time.time;
-        kick = true;
+        if (Input.GetButtonDown("Fire2") && kick == false)
+        {
+            kicktimer = Time.time;
+            kick = true;
+        }
+        if (kick)
+        {
+            foot2.transform.position = kickspawn.transform.position;
+        }
+        if (kick && Time.time >= kicktimer + kickdelay)
+        {
+            foot2.transform.position = footHolder.transform.position;
+            kick = false;
+        }
     }
 }

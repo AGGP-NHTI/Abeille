@@ -23,6 +23,13 @@ public class Guy : MonoBehaviour
     public GameObject activegun;
     public int gunindex;
 
+    public GameObject ShoeHolder;
+    public List<GameObject> shoes;
+    public GameObject activeshoes;
+    public int shoeindex;
+
+
+
     public Vector3 BSpawnLocal;
 
     Vector3 facingH = Vector3.one;
