@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: bcd0e833489a869418fa0928cc2afa4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -82,6 +82,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &197522119
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859318271413338303}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.08}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.23, y: 0.23}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.08}
+  m_EdgeRadius: 0
 --- !u!1 &2859318271435275726
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,8 +264,8 @@ MonoBehaviour:
   - {fileID: 2819690942847774618, guid: 0c98de432237b3b44b304cd993e1532e, type: 3}
   - {fileID: 7031115716185045765, guid: 5bd91046c93c78c40a477789b745d78a, type: 3}
   - {fileID: 8363313744564293382, guid: d9644b6054d37e34c80837809a7e7d9e, type: 3}
-  activeshoesL: {fileID: 0}
-  activeshoesR: {fileID: 0}
+  activeshoesL: {fileID: 2859318271413338303}
+  activeshoesR: {fileID: 2859318272524127700}
   shoeindex: 0
   BSpawnLocal: {x: 0, y: 0, z: 0}
   facingV: {x: 1, y: 1, z: 1}
@@ -381,7 +407,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: eed788220d13bc747bbfee666cba9826, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -677,8 +703,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foot1: {fileID: 2859318272524127700}
   foot2: {fileID: 2859318271413338303}
+  guy: {fileID: 2859318271688509251}
   kickspawn: {fileID: 7424542072683560719}
-  footHolder: {fileID: 7424542073585592194}
+  footHolder: {fileID: 7323353618186544625}
   kickdelay: 0.5
 --- !u!1 &7424542073509632089
 GameObject:
@@ -815,6 +842,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: eed788220d13bc747bbfee666cba9826, type: 3}
+    - target: {fileID: 8363313744564293380, guid: d9644b6054d37e34c80837809a7e7d9e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8363313744564293381, guid: d9644b6054d37e34c80837809a7e7d9e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -940,13 +971,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5073b43c334a18942ba87f4ae3cb4f95, type: 3}
---- !u!1 &770147099393871946 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7906448586289817637, guid: 5073b43c334a18942ba87f4ae3cb4f95, type: 3}
-  m_PrefabInstance: {fileID: 7424542072186271855}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &770147099393871947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7906448586289817636, guid: 5073b43c334a18942ba87f4ae3cb4f95, type: 3}
+  m_PrefabInstance: {fileID: 7424542072186271855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &770147099393871946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7906448586289817637, guid: 5073b43c334a18942ba87f4ae3cb4f95, type: 3}
   m_PrefabInstance: {fileID: 7424542072186271855}
   m_PrefabAsset: {fileID: 0}
