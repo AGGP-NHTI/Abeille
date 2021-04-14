@@ -187,4 +187,10 @@ public class Guy : MonoBehaviour
             Grounded = false;
         }
     }
+
+
+    public void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }
