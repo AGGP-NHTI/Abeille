@@ -5,7 +5,6 @@ using UnityEngine;
 public class Guy : MonoBehaviour
 {
     public float health;
-
     public bool dummy;
 
     public GameObject Head;
