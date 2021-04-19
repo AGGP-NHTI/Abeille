@@ -44,6 +44,10 @@ public class Guy : MonoBehaviour
 
     ShoeBase feetinstance;
 
+    public float JumpHeight;
+    public float MoveSpeed;
+    public float KickKnockback;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +73,8 @@ public class Guy : MonoBehaviour
 
     }
 
+
+    //HANDLES EQUIPMENT SWITCH
     public void updateGun()
     {
         Destroy(activegun);
@@ -100,17 +106,17 @@ public class Guy : MonoBehaviour
         //MOVEMENT
         if (Input.GetKeyDown(KeyCode.W) && Grounded)
         {
-            RB.AddForce(new Vector2(0, 300));
+            RB.AddForce(new Vector2(0, JumpHeight));
             Grounded = false;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            RB.AddForce(new Vector2(2, 0));
+            RB.AddForce(new Vector2(MoveSpeed, 0));
             feetinstance.Walk(ShoePrefab, -1 * facingH.x);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            RB.AddForce(new Vector2(-2, 0));
+            RB.AddForce(new Vector2(-MoveSpeed, 0));
             feetinstance.Walk(ShoePrefab, 1 * facingH.x);
         }
 
@@ -187,10 +193,11 @@ public class Guy : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "KickSpawn")
         {
+            RB.AddForce((gameObject.transform.position - other.transform.position) * KickKnockback);
         }
     }
 
