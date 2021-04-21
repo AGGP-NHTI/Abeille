@@ -10,7 +10,7 @@ public class outofbounds : MonoBehaviour
 
         if(guy)
         {
-            guy.maxHealth -= 9001; //thanks prof
+            guy.currentHealth -= 9001; //thanks prof
         }
     }
 }
