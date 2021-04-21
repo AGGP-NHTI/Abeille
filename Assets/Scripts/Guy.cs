@@ -192,7 +192,18 @@ public class Guy : MonoBehaviour
         return (Mathf.Abs(f)/f);
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void TakeDamage(float damage, float knockback, Vector2 direction)
+    {
+        currentHealth -= damage;
+        CheckDeath();
+        if (knockback != 0)
+        {
+            // apply force to rigidbody
+            RB.AddForce(direction * knockback);
+        }
+    }
+
+    /*public void OnCollisionEnter2D(Collision2D collision)
     {
         Bullet bullet = collision.gameObject.GetComponent<Bullet>();
         if (bullet)
@@ -208,7 +219,7 @@ public class Guy : MonoBehaviour
         {
             RB.AddForce((gameObject.transform.position - other.transform.position).normalized * KickKnockback);
         }
-    }
+    }*/
 
     bool IsGrounded()
     {
