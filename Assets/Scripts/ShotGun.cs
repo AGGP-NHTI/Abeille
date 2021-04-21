@@ -9,9 +9,9 @@ public class ShotGun : Pistol
     {
         Bullet bullet = Projectile.GetComponent<Bullet>();
 
-        gunHarm = 10;
+        gunDamage = 6;
 
-        bullet.Damage = gunHarm;
+        bullet.Damage = gunDamage;
 
         GameObject a = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
         GameObject b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
