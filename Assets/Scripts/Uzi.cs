@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Uzi : MonoBehaviour
 {
-    public GameObject Bullet;
+    public GameObject Projectile;
     public GameObject BSpawn;
     public float firedelay;
     float firetimer;
+    float gunHarm = 2;
 
     // Update is called once per frame
     void Update()
@@ -19,11 +20,16 @@ public class Uzi : MonoBehaviour
         }
     }
 
+    public void GunDamage()
+    {
+        Bullet bullet = Projectile.GetComponent<Bullet>();
 
+        bullet.Damage = gunHarm;
+    }
 
     public void Fire()
     {
-        var b = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
+        var b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
         Destroy(b, 2f);
     }
 }

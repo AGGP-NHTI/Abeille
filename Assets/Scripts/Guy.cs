@@ -187,9 +187,10 @@ public class Guy : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Bullet>())
+        Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+        if (bullet)
         {
-            health -= 5;
+            health -= bullet.Damage;
         }
     }
 

@@ -13,10 +13,15 @@ public class Rifle : Pistol
         base.Update();
         if (fired && Time.time >= delay + delayTimer)
         {
-            GameObject b = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
+            GameObject b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
             Destroy(b, 2f);
             fired = false;
         }
+    }
+
+    public override void GunDamage()
+    {
+        gunHarm = 4;
     }
 
     public override void Fire()
@@ -24,7 +29,7 @@ public class Rifle : Pistol
 
         fired = true;
         delayTimer = Time.time;
-        GameObject a = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
+        GameObject a = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
         Destroy(a, 2f);
     }
 }
