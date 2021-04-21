@@ -23,9 +23,9 @@ public class Rifle : Pistol
     {
         Bullet bullet = Projectile.GetComponent<Bullet>();
 
-        gunHarm = 6;
+        gunDamage = 6;
 
-        bullet.Damage = gunHarm;
+        bullet.Damage = gunDamage;
 
         fired = true;
         delayTimer = Time.time;

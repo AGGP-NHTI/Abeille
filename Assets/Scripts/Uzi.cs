@@ -8,7 +8,7 @@ public class Uzi : MonoBehaviour
     public GameObject BSpawn;
     public float firedelay;
     float firetimer;
-    float gunHarm = 2;
+    float gunDamage = 2;
 
     // Update is called once per frame
     void Update()
@@ -24,7 +24,7 @@ public class Uzi : MonoBehaviour
     {
         Bullet bullet = Projectile.GetComponent<Bullet>();
 
-        bullet.Damage = gunHarm;
+        bullet.Damage = gunDamage;
 
         var b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
         Destroy(b, 2f);
