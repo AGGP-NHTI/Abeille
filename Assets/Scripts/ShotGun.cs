@@ -7,9 +7,15 @@ public class ShotGun : Pistol
 
     public override void Fire()
     {
-        GameObject a = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
-        GameObject b = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
-        GameObject c = Instantiate(Bullet, BSpawn.transform.position, transform.rotation);
+        Bullet bullet = Projectile.GetComponent<Bullet>();
+
+        gunHarm = 10;
+
+        bullet.Damage = gunHarm;
+
+        GameObject a = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
+        GameObject b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
+        GameObject c = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
         a.transform.Rotate(0, 0, 15);
         c.transform.Rotate(0, 0, -15);
         Destroy(a, 2f);
