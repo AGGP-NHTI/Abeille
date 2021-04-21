@@ -36,7 +36,7 @@ public class DoubleKickShoe : ShoeBase
             kickspawn.SetActive(true);
             foot2.transform.position = kickspawn.transform.position;
         }
-        if ((doublekick && !kick) && Time.time >= kicktimer + kickdelay)
+        if ((doublekick && !kick) && Time.time >= kicktimer + (kickdelay * 2))
         {
             foot2.transform.position = footHolder.transform.position;
             doublekick = false;

@@ -206,7 +206,7 @@ public class Guy : MonoBehaviour
     {
         if (other.name == "KickSpawn")
         {
-            RB.AddForce((gameObject.transform.position - other.transform.position) * KickKnockback);
+            RB.AddForce((gameObject.transform.position - other.transform.position).normalized * KickKnockback);
         }
     }
 
