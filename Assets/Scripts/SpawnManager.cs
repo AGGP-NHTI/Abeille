@@ -29,7 +29,6 @@ public class SpawnManager : MonoBehaviour
 
         if (spawnList.Length == 0)
         {
-
             Instantiate(spawnPoint, Vector3.zero, Quaternion.identity);
             spawnList = FindObjectsOfType<SpawnPoint>();
         }

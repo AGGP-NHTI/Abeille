@@ -8,9 +8,9 @@ public class outofbounds : MonoBehaviour
     {
         Guy guy = collision.gameObject.GetComponent<Guy>();
 
-        if(guy)
+        if (guy)
         {
-            guy.currentHealth -= 9001; //thanks prof
+            guy.TakeDamage(9001, 0, Vector2.zero); //thanks prof
         }
     }
 }
