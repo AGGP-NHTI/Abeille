@@ -214,8 +214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7657b125a780cfc4992bcdce4f8e849b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  maxHealth: 100
+  currentHealth: 0
   dummy: 0
+  spawner: {fileID: 6017106666145004099, guid: 32b6d811a5139e741b609b42fd1b5085, type: 3}
   Head: {fileID: 7424542073996895786}
   Arms: {fileID: 2859318272051906382}
   Hand: {fileID: 7424542072700534293}

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Guy : MonoBehaviour
 {
-    public float health;
+    public float maxHealth = 100;
+    public float currentHealth;
     public bool dummy;
+
+    public SpawnManager spawner;
 
     public GameObject Head;
     public GameObject Arms;
@@ -51,16 +54,22 @@ public class Guy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
         RB = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<CapsuleCollider2D>();
         Grounded = false;
         feetinstance = ShoePrefab.GetComponent<ShoeBase>();
     }
 
+    private void Awake()
+    {
+        currentHealth = maxHealth;
+        enabled = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        col.enabled = true;
         Grounded = IsGrounded();
 
         if(!dummy)
@@ -68,8 +77,6 @@ public class Guy : MonoBehaviour
             UpdateArmsandFacing();
             getInputs();
         }
-
-
 
     }
 
@@ -190,7 +197,8 @@ public class Guy : MonoBehaviour
         Bullet bullet = collision.gameObject.GetComponent<Bullet>();
         if (bullet)
         {
-            health -= bullet.Damage;
+            currentHealth -= bullet.Damage;
+            CheckDeath();
         }
     }
 
@@ -207,5 +215,15 @@ public class Guy : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.1f, groundLayer);
         Debug.DrawRay(col.bounds.center, Vector2.down * (col.bounds.extents.y + 0.1f), rayColor);
         return hit.collider != null;
+    }
+
+    void CheckDeath()
+    {
+        if (currentHealth <= 0)
+        {
+            Debug.Log("dead");
+            Destroy(gameObject);
+            spawner.Respawn(gameObject);
+        }
     }
 }
