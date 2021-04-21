@@ -20,15 +20,12 @@ public class Uzi : MonoBehaviour
         }
     }
 
-    public void GunDamage()
+    public void Fire()
     {
         Bullet bullet = Projectile.GetComponent<Bullet>();
 
         bullet.Damage = gunHarm;
-    }
 
-    public void Fire()
-    {
         var b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
         Destroy(b, 2f);
     }

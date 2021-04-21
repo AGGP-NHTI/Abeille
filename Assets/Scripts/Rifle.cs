@@ -19,13 +19,13 @@ public class Rifle : Pistol
         }
     }
 
-    public override void GunDamage()
-    {
-        gunHarm = 4;
-    }
-
     public override void Fire()
     {
+        Bullet bullet = Projectile.GetComponent<Bullet>();
+
+        gunHarm = 6;
+
+        bullet.Damage = gunHarm;
 
         fired = true;
         delayTimer = Time.time;

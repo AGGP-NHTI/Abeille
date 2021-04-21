@@ -5,13 +5,14 @@ using UnityEngine;
 public class ShotGun : Pistol
 {
 
-    public override void GunDamage()
-    {
-        gunHarm = 8;
-    }
-
     public override void Fire()
     {
+        Bullet bullet = Projectile.GetComponent<Bullet>();
+
+        gunHarm = 10;
+
+        bullet.Damage = gunHarm;
+
         GameObject a = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
         GameObject b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
         GameObject c = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
