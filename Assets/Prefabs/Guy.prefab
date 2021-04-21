@@ -247,6 +247,9 @@ MonoBehaviour:
   rayColor: {r: 0, g: 0, b: 0, a: 0}
   BSpawnLocal: {x: 0, y: 0, z: 0}
   facingV: {x: 1, y: 1, z: 1}
+  JumpHeight: 350
+  MoveSpeed: 5
+  KickKnockback: 100
 --- !u!50 &2859318271688509277
 Rigidbody2D:
   serializedVersion: 4
@@ -684,7 +687,9 @@ MonoBehaviour:
   guy: {fileID: 2859318271688509251}
   kickspawn: {fileID: 7424542072683560719}
   footHolder: {fileID: 7323353618186544625}
+  kick: 0
   kickdelay: 0.5
+  kicktimer: 0
 --- !u!1 &7424542073509632089
 GameObject:
   m_ObjectHideFlags: 0

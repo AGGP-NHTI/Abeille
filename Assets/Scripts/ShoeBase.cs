@@ -11,9 +11,9 @@ public class ShoeBase : MonoBehaviour
     public GameObject kickspawn;
     public GameObject footHolder;
 
-    bool kick;
+    public bool kick;
     public float kickdelay;
-    float kicktimer;
+    public float kicktimer;
 
 
     // Start is called before the first frame update
@@ -43,7 +43,7 @@ public class ShoeBase : MonoBehaviour
         feets.transform.Rotate(new Vector3 (0,0,2.5f * direction));
     }
 
-    public void Kick()
+    public virtual void Kick()
     {
         if (Input.GetButtonDown("Fire2") && kick == false)
         {

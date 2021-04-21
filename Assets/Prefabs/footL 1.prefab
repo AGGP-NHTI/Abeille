@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7031115716185045766}
   - component: {fileID: 7031115716185045767}
+  - component: {fileID: 806190291805385539}
   m_Layer: 0
   m_Name: footL 1
   m_TagString: Untagged
@@ -82,3 +83,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &806190291805385539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031115716185045765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b810e971e488a7145b15628aedfca6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
