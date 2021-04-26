@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager self;
     public GameObject spawnPoint;
 
-    protected SpawnPoint[] spawnList;
+    public SpawnPoint[] spawnList;
     protected int nextSpawn;
 
     private void Awake()
@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
             Destroy(this);
             return;
         }
-
+        
         self = this;
     }
 
@@ -32,12 +32,12 @@ public class SpawnManager : MonoBehaviour
             Instantiate(spawnPoint, Vector3.zero, Quaternion.identity);
             spawnList = FindObjectsOfType<SpawnPoint>();
         }
-
     }
 
     Transform RandomSpawnPoint()
     {
         int spawnAt = Random.Range(0, spawnList.Length);
+        Debug.Log(spawnList.Length + "-" + spawnAt);
         return spawnList[spawnAt].gameObject.transform;
     }
 
