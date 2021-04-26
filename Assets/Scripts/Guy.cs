@@ -211,7 +211,7 @@ public class Guy : MonoBehaviour
             currentHealth -= bullet.Damage;
             CheckDeath();
         }
-    }*/
+    }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -219,7 +219,7 @@ public class Guy : MonoBehaviour
         {
             RB.AddForce((gameObject.transform.position - other.transform.position).normalized * KickKnockback);
         }
-    }
+    }*/
 
     bool IsGrounded()
     {
