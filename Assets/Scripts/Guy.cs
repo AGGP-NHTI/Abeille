@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Guy : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Guy : MonoBehaviour
     public bool dummy;
 
     public SpawnManager spawner;
+
+    public Text healthDisplay;
 
     public GameObject Head;
     public GameObject Arms;
@@ -63,6 +66,7 @@ public class Guy : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
+        healthDisplay.text = currentHealth.ToString();
         enabled = true;
     }
 
@@ -195,6 +199,7 @@ public class Guy : MonoBehaviour
     public void TakeDamage(float damage, float knockback, Vector2 direction)
     {
         currentHealth -= damage;
+        healthDisplay.text = currentHealth.ToString();
         CheckDeath();
         if (knockback != 0)
         {
