@@ -7,6 +7,7 @@ public class Guy : MonoBehaviour
 {
     public float maxHealth = 100;
     public float currentHealth;
+    public int lives = 3;
     public bool dummy;
 
     public SpawnManager spawner;
@@ -66,7 +67,7 @@ public class Guy : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
-        healthDisplay.text = currentHealth.ToString();
+        UpdateDisplay();
         enabled = true;
     }
 
@@ -199,7 +200,12 @@ public class Guy : MonoBehaviour
     public void TakeDamage(float damage, float knockback, Vector2 direction)
     {
         currentHealth -= damage;
-        healthDisplay.text = currentHealth.ToString();
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+
+        UpdateDisplay();
         CheckDeath();
         if (knockback != 0)
         {
@@ -220,9 +226,20 @@ public class Guy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("dead");
+            lives -= 1;
+            UpdateDisplay();
             Destroy(gameObject);
-            spawner.Respawn(gameObject);
-            currentHealth = maxHealth;
+
+            if (lives > 0)
+            {
+                spawner.Respawn(gameObject);
+                currentHealth = maxHealth;
+            }
         }
+    }
+
+    void UpdateDisplay()
+    {
+        healthDisplay.text = "Lives: " + lives.ToString() + "\nHP: " + currentHealth.ToString();
     }
 }
