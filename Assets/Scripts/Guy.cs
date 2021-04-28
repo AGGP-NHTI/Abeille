@@ -208,24 +208,6 @@ public class Guy : MonoBehaviour
         }
     }
 
-    /*public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Bullet bullet = collision.gameObject.GetComponent<Bullet>();
-        if (bullet)
-        {
-            currentHealth -= bullet.Damage;
-            CheckDeath();
-        }
-    }
-
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.name == "KickSpawn")
-        {
-            RB.AddForce((gameObject.transform.position - other.transform.position).normalized * KickKnockback);
-        }
-    }*/
-
     bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.1f, groundLayer);
