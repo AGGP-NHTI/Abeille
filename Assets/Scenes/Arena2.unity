@@ -546,6 +546,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90612134504da7841a14330b48a04880, type: 3}
+--- !u!1 &933760841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7424542072683560719, guid: dfd5f70cfb0bf92488bcd1cdb9fb826f, type: 3}
+  m_PrefabInstance: {fileID: 1855862589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &933760844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933760841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eee980ffef640ab4bb1b9439fe9a744d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
+  Knockback: 75
 --- !u!1001 &1133535109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1764,7 +1783,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< Updated upstream
     - target: {fileID: 933760843, guid: dfd5f70cfb0bf92488bcd1cdb9fb826f, type: 3}
       propertyPath: m_Radius
       value: 0.0001
@@ -1777,8 +1795,6 @@ PrefabInstance:
       propertyPath: Knockback
       value: 150
       objectReference: {fileID: 0}
-=======
->>>>>>> Stashed changes
     - target: {fileID: 2859318271688509251, guid: dfd5f70cfb0bf92488bcd1cdb9fb826f, type: 3}
       propertyPath: spawner
       value: 
