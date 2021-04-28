@@ -7,6 +7,7 @@ public class Pistol : MonoBehaviour
     public GameObject Projectile;
     public GameObject BSpawn;
     public float gunDamage;
+    public AudioSource shot;
 
     // Update is called once per frame
     public virtual void Update()
@@ -19,6 +20,8 @@ public class Pistol : MonoBehaviour
 
     public virtual void Fire()
     {
+        shot.Play();
+
         Bullet bullet = Projectile.GetComponent<Bullet>();
 
         gunDamage = 4;
@@ -27,5 +30,6 @@ public class Pistol : MonoBehaviour
 
         var b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
         Destroy(b, 2f);
+
     }
 }

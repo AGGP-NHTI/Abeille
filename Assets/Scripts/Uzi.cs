@@ -9,6 +9,7 @@ public class Uzi : MonoBehaviour
     public float firedelay;
     float firetimer;
     float gunDamage = 2;
+    public AudioSource shot;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +23,8 @@ public class Uzi : MonoBehaviour
 
     public void Fire()
     {
+        shot.Play();
+
         Bullet bullet = Projectile.GetComponent<Bullet>();
 
         bullet.Damage = gunDamage;

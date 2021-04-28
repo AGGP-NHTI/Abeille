@@ -7,6 +7,8 @@ public class ShotGun : Pistol
 
     public override void Fire()
     {
+        shot.Play();
+
         Bullet bullet = Projectile.GetComponent<Bullet>();
 
         gunDamage = 6;
@@ -21,5 +23,6 @@ public class ShotGun : Pistol
         Destroy(a, 2f);
         Destroy(b, 2f);
         Destroy(c, 2f);
+        
     }
 }
