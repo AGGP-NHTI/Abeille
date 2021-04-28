@@ -14,7 +14,6 @@ public class SpawnManager : MonoBehaviour
     {
         if (self)
         {
-            Debug.Log(self.gameObject.name + " has another instance of a singleton!");
             Destroy(this);
             return;
         }
@@ -37,7 +36,6 @@ public class SpawnManager : MonoBehaviour
     Transform RandomSpawnPoint()
     {
         int spawnAt = Random.Range(0, spawnList.Length);
-        Debug.Log(spawnList.Length + "-" + spawnAt);
         return spawnList[spawnAt].gameObject.transform;
     }
 

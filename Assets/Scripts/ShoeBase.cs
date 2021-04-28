@@ -24,7 +24,7 @@ public class ShoeBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Kick();
+        Kicking();
 
         foot1 = guy.activeshoesL;
         foot2 = guy.activeshoesR;
@@ -45,11 +45,12 @@ public class ShoeBase : MonoBehaviour
 
     public virtual void Kick()
     {
-        if (Input.GetButtonDown("Fire2") && kick == false)
-        {
-            kicktimer = Time.time;
-            kick = true;
-        }
+        kicktimer = Time.time;
+        kick = true;
+    }
+
+    public virtual void Kicking()
+    {
         if (kick)
         {
             kickspawn.SetActive(true);

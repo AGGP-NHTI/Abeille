@@ -214,10 +214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7657b125a780cfc4992bcdce4f8e849b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UsingMouse: 0
+  Dummy: 0
+  Player2: 0
   maxHealth: 100
   currentHealth: 0
-  dummy: 0
+  lives: 3
   spawner: {fileID: 0}
+  healthDisplay: {fileID: 0}
   Head: {fileID: 7424542073996895786}
   Arms: {fileID: 2859318272051906382}
   Hand: {fileID: 7424542072700534293}
@@ -557,6 +561,7 @@ GameObject:
   - component: {fileID: 7424542072683560718}
   - component: {fileID: 933760843}
   - component: {fileID: 933760844}
+  - component: {fileID: 7625281686142670930}
   m_Layer: 0
   m_Name: KickSpawn
   m_TagString: Untagged
@@ -595,6 +600,20 @@ CircleCollider2D:
   serializedVersion: 2
   m_Radius: 0.0001
 --- !u!114 &933760844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7424542072683560719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eee980ffef640ab4bb1b9439fe9a744d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
+  Knockback: 150
+--- !u!114 &7625281686142670930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

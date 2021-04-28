@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class Guy : MonoBehaviour
 {
+    public bool UsingMouse;
+    public bool Dummy;
+    public bool Player2;
+
     public float maxHealth = 100;
     public float currentHealth;
     public int lives = 3;
-    public bool dummy;
 
     public SpawnManager spawner;
 
@@ -21,12 +24,14 @@ public class Guy : MonoBehaviour
     public GameObject Legs;
     public GameObject legaimer;
     public GameObject ShoePrefab;
+    ShoeBase Shoes;
     public GameObject GunPrefab;
 
 
     public GameObject GunHolder;
     public List<GameObject> guns;
     public GameObject activegun;
+    Pistol Gun;
     public int gunindex;
 
     public GameObject ShoeHolderL;
@@ -47,7 +52,6 @@ public class Guy : MonoBehaviour
     public Vector3 facingV = Vector3.one;
 
     Rigidbody2D RB;
-    bool Grounded;
 
     ShoeBase feetinstance;
 
@@ -55,12 +59,20 @@ public class Guy : MonoBehaviour
     public float MoveSpeed;
     public float KickKnockback;
 
+
+    bool Jump;
+    bool Shoot;
+    bool Kick;
+    bool SwitchGun;
+    bool SwitchShoe;
+    float Movement;
+
+
     // Start is called before the first frame update
     void Start()
     {
         RB = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<CapsuleCollider2D>();
-        Grounded = false;
         feetinstance = ShoePrefab.GetComponent<ShoeBase>();
     }
 
@@ -75,12 +87,24 @@ public class Guy : MonoBehaviour
     void Update()
     {
         col.enabled = true;
-        Grounded = IsGrounded();
+        Gun = activegun.GetComponent<Pistol>();
+        Shoes = ShoePrefab.GetComponent<ShoeBase>();
 
-        if(!dummy)
+
+        if(!Dummy)
         {
-            UpdateArmsandFacing();
             getInputs();
+            UpdateArmsandFacing();
+            updateHolding();
+            UpdateMovement();
+            if (Shoot)
+            {
+                Gun.Fire();
+            }
+            if (Kick)
+            {
+                Shoes.Kick();
+            }
         }
 
     }
@@ -111,33 +135,12 @@ public class Guy : MonoBehaviour
         SR = activeshoesL.GetComponent<SpriteRenderer>();
         SR.sortingOrder = 3;
     }
-
-
-    public void getInputs()
+    public void updateHolding()
     {
-        //MOVEMENT
-        if (Input.GetKeyDown(KeyCode.W) && Grounded)
-        {
-            RB.AddForce(new Vector2(0, JumpHeight));
-            Grounded = false;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            RB.AddForce(new Vector2(MoveSpeed, 0));
-            feetinstance.Walk(ShoePrefab, -1 * facingH.x);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            RB.AddForce(new Vector2(-MoveSpeed, 0));
-            feetinstance.Walk(ShoePrefab, 1 * facingH.x);
-        }
-
-
-
         //UPDATE EQUIPMENT
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (SwitchGun)
         {
-            if(shoeindex < 2)
+            if (shoeindex < 2)
             {
                 shoeindex += 1;
             }
@@ -148,7 +151,7 @@ public class Guy : MonoBehaviour
 
             updateShoe();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (SwitchShoe)
         {
             if (gunindex < 3)
             {
@@ -159,22 +162,72 @@ public class Guy : MonoBehaviour
                 gunindex = 0;
             }
 
-
             updateGun();
         }
     }
 
+    public void UpdateMovement()
+    {
+        if (Jump && IsGrounded())
+        {
+            RB.AddForce(new Vector2(0, JumpHeight));
+        }
+
+        RB.AddForce(new Vector2(MoveSpeed * Movement, 0));
+        if (Movement != 0)
+        {
+            feetinstance.Walk(ShoePrefab, 1 * facingH.x);
+        }
+    }
+
+
+    public void getInputs()
+    {
+        if(!Player2)
+        {
+            Shoot = Input.GetButtonDown("Fire1");
+            Kick = Input.GetButtonDown("Fire2");
+            SwitchGun = Input.GetButtonDown("Button1");
+            SwitchShoe = Input.GetButtonDown("Button2");
+            Jump = Input.GetButtonDown("Jump");
+            Movement = Input.GetAxis("Horizontal");
+        }
+        if(Player2)
+        {
+            Shoot = Input.GetButtonDown("P2Fire1");
+            Kick = Input.GetButtonDown("P2Fire2");
+            SwitchGun = Input.GetButtonDown("P2Button1");
+            SwitchShoe = Input.GetButtonDown("P2Button2");
+            Jump = Input.GetButtonDown("P2Jump");
+            Movement = Input.GetAxis("P2Horizontal");
+        }
+    }
+
+
+
+
+
     public void UpdateArmsandFacing()
     {
-        //update legs
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 dir = Input.mousePosition - pos;
+        Vector3 dir;
+        if(UsingMouse)
+        {
+            dir = Input.mousePosition - pos;
+        }
+        else
+        {
+            dir = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0);
+        }
+
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+
+        //update legs
         legaimer.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+
         //update arms
-        Vector3 pos2 = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 dir2 = Input.mousePosition - pos;
-        float angle2 = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Arms.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         BSpawnLocal = Hand.transform.position - Arms.transform.position;
@@ -225,7 +278,6 @@ public class Guy : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Debug.Log("dead");
             lives -= 1;
             UpdateDisplay();
             Destroy(gameObject);

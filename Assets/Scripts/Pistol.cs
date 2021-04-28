@@ -12,10 +12,7 @@ public class Pistol : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Fire();
-        }
+        
     }
 
     public virtual void Fire()
