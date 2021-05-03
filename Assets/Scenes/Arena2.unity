@@ -2197,7 +2197,7 @@ PrefabInstance:
       objectReference: {fileID: 2060928026}
     - target: {fileID: 2859318271688509251, guid: dfd5f70cfb0bf92488bcd1cdb9fb826f, type: 3}
       propertyPath: UsingMouse
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2859318271688509273, guid: dfd5f70cfb0bf92488bcd1cdb9fb826f, type: 3}
       propertyPath: m_Name
@@ -2402,6 +2402,10 @@ PrefabInstance:
       propertyPath: healthDisplay
       value: 
       objectReference: {fileID: 13982246}
+    - target: {fileID: 2140982370425496290, guid: 5f678dc7ba3cb9f4e998898327310821, type: 3}
+      propertyPath: Player2
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2140982370425496312, guid: 5f678dc7ba3cb9f4e998898327310821, type: 3}
       propertyPath: m_Name
       value: Guy2
