@@ -66,6 +66,8 @@ public class Guy : MonoBehaviour
     bool SwitchGun;
     bool SwitchShoe;
     float Movement;
+    float MouseX;
+    float MouseY;
 
 
     // Start is called before the first frame update
@@ -97,10 +99,13 @@ public class Guy : MonoBehaviour
             UpdateArmsandFacing();
             updateHolding();
             UpdateMovement();
+
             if (Shoot)
             {
+                Debug.Log(gameObject.name + " :: is Player 2 = " + Player2 + " :: Shoot =  " + Shoot);
                 Gun.Fire();
             }
+
             if (Kick)
             {
                 Shoes.Kick();
@@ -186,20 +191,33 @@ public class Guy : MonoBehaviour
         if(!Player2)
         {
             Shoot = Input.GetButtonDown("Fire1");
+            if (Shoot)
+            {
+                Debug.Log(gameObject.name + " :: Player 1 shoot");
+            }
             Kick = Input.GetButtonDown("Fire2");
             SwitchGun = Input.GetButtonDown("Button1");
             SwitchShoe = Input.GetButtonDown("Button2");
             Jump = Input.GetButtonDown("Jump");
             Movement = Input.GetAxis("Horizontal");
+            MouseX = Input.GetAxis("Mouse X");
+            MouseY = Input.GetAxis("Mouse Y");
         }
+
         if(Player2)
         {
             Shoot = Input.GetButtonDown("P2Fire1");
+            if(Shoot)
+            {
+                Debug.Log(gameObject.name + " :: Player 2 shoot");
+            }
             Kick = Input.GetButtonDown("P2Fire2");
             SwitchGun = Input.GetButtonDown("P2Button1");
             SwitchShoe = Input.GetButtonDown("P2Button2");
             Jump = Input.GetButtonDown("P2Jump");
             Movement = Input.GetAxis("P2Horizontal");
+            MouseX = Input.GetAxis("P2Mouse X");
+            MouseY = Input.GetAxis("P2Mouse Y");
         }
     }
 
@@ -217,7 +235,7 @@ public class Guy : MonoBehaviour
         }
         else
         {
-            dir = new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0);
+            dir = new Vector3(MouseY, -MouseX, 0);
         }
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;

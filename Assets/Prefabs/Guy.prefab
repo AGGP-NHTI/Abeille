@@ -214,10 +214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7657b125a780cfc4992bcdce4f8e849b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UsingMouse: 0
+  UsingMouse: 1
   Dummy: 0
   Player2: 0
-  maxHealth: 100
+  maxHealth: 50
   currentHealth: 0
   lives: 3
   spawner: {fileID: 0}
@@ -254,7 +254,7 @@ MonoBehaviour:
   BSpawnLocal: {x: 0, y: 0, z: 0}
   facingV: {x: 1, y: 1, z: 1}
   JumpHeight: 350
-  MoveSpeed: 3
+  MoveSpeed: 2
   KickKnockback: 100
 --- !u!50 &2859318271688509277
 Rigidbody2D:
