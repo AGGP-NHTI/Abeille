@@ -37,6 +37,6 @@ public class MenuButtons : MonoBehaviour
     public void EndGame()
     {
         Application.Quit();
-        Debug.Log("Application has been snaped.");
+        Debug.Log("Application has been snapped.");
     }
 }
