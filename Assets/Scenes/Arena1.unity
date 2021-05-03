@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatsHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 5530149977231868169, guid: 620be5d464aaf514daecdf9930b5f8d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620be5d464aaf514daecdf9930b5f8d5, type: 3}
 --- !u!1001 &326419853
@@ -444,6 +448,10 @@ PrefabInstance:
     - target: {fileID: 7449609211702527722, guid: 05b9205c57fd52f41a8b5375df328c22, type: 3}
       propertyPath: m_Name
       value: Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449609211702527722, guid: 05b9205c57fd52f41a8b5375df328c22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7449609211702527727, guid: 05b9205c57fd52f41a8b5375df328c22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -632,6 +640,10 @@ PrefabInstance:
     - target: {fileID: 2862861590068625241, guid: 2c9817a6d1e35414eabff8fbbabad341, type: 3}
       propertyPath: m_Name
       value: WinManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862861590068625241, guid: 2c9817a6d1e35414eabff8fbbabad341, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c9817a6d1e35414eabff8fbbabad341, type: 3}
