@@ -366,8 +366,8 @@ MonoBehaviour:
   rayColor: {r: 0, g: 0, b: 0, a: 0}
   BSpawnLocal: {x: 0, y: 0, z: 0}
   facingV: {x: 1, y: 1, z: 1}
-  JumpHeight: 350
-  MoveSpeed: 2
+  JumpHeight: 275
+  MoveSpeed: 15
   KickKnockback: 100
 --- !u!50 &2140982370425496316
 Rigidbody2D:
