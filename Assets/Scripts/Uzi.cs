@@ -10,7 +10,9 @@ public class Uzi : Pistol
     public override void Fire()
     {
         if (Time.time >= firetimer + firedelay)
-        { 
+        {
+            firetimer = Time.time;
+
             shot.Play();
 
             Bullet bullet = Projectile.GetComponent<Bullet>();

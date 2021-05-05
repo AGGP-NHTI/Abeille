@@ -51,6 +51,7 @@ MonoBehaviour:
   gunDamage: 2
   shot: {fileID: 6866444169151514255}
   firedelay: 0.1
+  firetimer: 2
 --- !u!1 &3981369382697992747
 GameObject:
   m_ObjectHideFlags: 0
