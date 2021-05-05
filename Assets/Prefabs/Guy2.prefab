@@ -368,7 +368,7 @@ MonoBehaviour:
   facingV: {x: 1, y: 1, z: 1}
   JumpHeight: 275
   MoveSpeed: 15
-  KickKnockback: 8000
+  KickKnockback: 100000000
 --- !u!50 &2140982370425496316
 Rigidbody2D:
   serializedVersion: 4
@@ -742,9 +742,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.41, y: 0}
   serializedVersion: 2
-  m_Radius: 0.0001
+  m_Radius: 1
 --- !u!114 &4186125329866877677
 MonoBehaviour:
   m_ObjectHideFlags: 0
