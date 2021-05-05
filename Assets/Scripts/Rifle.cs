@@ -22,15 +22,19 @@ public class Rifle : Pistol
 
     public override void Fire()
     {
-        shot.Play();
-        Bullet bullet = Projectile.GetComponent<Bullet>();
+        if (Time.time >= firetimer + firedelay)
+        {
+            firetimer = Time.time;
 
-        bullet.Damage = gunDamage;
+            shot.Play();
+            Bullet bullet = Projectile.GetComponent<Bullet>();
 
-        fired = true;
-        delayTimer = Time.time;
-        GameObject a = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
-        Destroy(a, 2f);
-        
+            bullet.Damage = gunDamage;
+
+            fired = true;
+            delayTimer = Time.time;
+            GameObject a = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
+            Destroy(a, 2f);
+        }
     }
 }

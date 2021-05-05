@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Uzi : Pistol
 {
-    public float firedelay;
-    float firetimer;
-
+    
     public override void Fire()
     {
         if (Time.time >= firetimer + firedelay)

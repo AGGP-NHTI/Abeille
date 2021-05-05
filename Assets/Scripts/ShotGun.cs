@@ -7,20 +7,24 @@ public class ShotGun : Pistol
 
     public override void Fire()
     {
-        shot.Play();
+        if (Time.time >= firetimer + firedelay)
+        {
+            firetimer = Time.time;
 
-        Bullet bullet = Projectile.GetComponent<Bullet>();
+            shot.Play();
 
-        bullet.Damage = gunDamage;
+            Bullet bullet = Projectile.GetComponent<Bullet>();
 
-        GameObject a = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
-        GameObject b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
-        GameObject c = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
-        a.transform.Rotate(0, 0, 15);
-        c.transform.Rotate(0, 0, -15);
-        Destroy(a, 2f);
-        Destroy(b, 2f);
-        Destroy(c, 2f);
-        
+            bullet.Damage = gunDamage;
+
+            GameObject a = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
+            GameObject b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
+            GameObject c = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
+            a.transform.Rotate(0, 0, 15);
+            c.transform.Rotate(0, 0, -15);
+            Destroy(a, 2f);
+            Destroy(b, 2f);
+            Destroy(c, 2f);
+        }
     }
 }

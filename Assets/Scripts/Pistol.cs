@@ -7,7 +7,8 @@ public class Pistol : MonoBehaviour
     public GameObject Projectile;
     public GameObject BSpawn;
     public float gunDamage = 4;
-    float firetimer;
+    protected float firetimer;
+    public float firedelay;
     public AudioSource shot;
 
     // Update is called once per frame
@@ -18,14 +19,18 @@ public class Pistol : MonoBehaviour
 
     public virtual void Fire()
     {
-        shot.Play();
+        if (Time.time >= firetimer + firedelay)
+        {
+            firetimer = Time.time;
 
-        Bullet bullet = Projectile.GetComponent<Bullet>();
+            shot.Play();
 
-        bullet.Damage = gunDamage;
+            Bullet bullet = Projectile.GetComponent<Bullet>();
 
-        var b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
-        Destroy(b, 2f);
+            bullet.Damage = gunDamage;
 
+            var b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
+            Destroy(b, 2f);
+        }
     }
 }

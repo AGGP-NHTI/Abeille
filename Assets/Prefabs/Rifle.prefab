@@ -370,7 +370,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 8837004773045180445, guid: b799fbb8f16a4e3428b9cc1d6bc353c4, type: 3}
   BSpawn: {fileID: 6151252192155742647}
-  gunDamage: 4
+  gunDamage: 7
+  firedelay: 0.8
   shot: {fileID: 8174363759965133625}
-  delay: 0.25
+  delay: 0.15
   delayTimer: 0
