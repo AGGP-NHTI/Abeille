@@ -7,25 +7,18 @@ public class Uzi : Pistol
     public float firedelay;
     float firetimer;
 
-    // Update is called once per frame
-    public override void Update()
-    {
-        if (Time.time >= firetimer + firedelay)
-        {
-            firetimer = Time.time;
-            Fire();
-        }
-    }
-
     public override void Fire()
     {
-        shot.Play();
+        if (Time.time >= firetimer + firedelay)
+        { 
+            shot.Play();
 
-        Bullet bullet = Projectile.GetComponent<Bullet>();
+            Bullet bullet = Projectile.GetComponent<Bullet>();
 
-        bullet.Damage = gunDamage;
+            bullet.Damage = gunDamage;
 
-        var b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
-        Destroy(b, 2f);
+            var b = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
+            Destroy(b, 2f);
+        }
     }
 }
