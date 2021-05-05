@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 8837004773045180445, guid: b799fbb8f16a4e3428b9cc1d6bc353c4, type: 3}
   BSpawn: {fileID: 7579232758379915475}
-  gunDamage: 0
+  gunDamage: 6
   shot: {fileID: 4253560588387013373}
 --- !u!1 &5656678191069846511
 GameObject:

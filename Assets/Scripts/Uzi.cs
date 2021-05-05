@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Uzi : MonoBehaviour
+public class Uzi : Pistol
 {
-    public GameObject Projectile;
-    public GameObject BSpawn;
     public float firedelay;
     float firetimer;
-    float gunDamage = 2;
-    public AudioSource shot;
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= firetimer + firedelay)
         {
@@ -21,7 +17,7 @@ public class Uzi : MonoBehaviour
         }
     }
 
-    public void Fire()
+    public override void Fire()
     {
         shot.Play();
 

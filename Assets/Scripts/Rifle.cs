@@ -25,8 +25,6 @@ public class Rifle : Pistol
         shot.Play();
         Bullet bullet = Projectile.GetComponent<Bullet>();
 
-        gunDamage = 6;
-
         bullet.Damage = gunDamage;
 
         fired = true;

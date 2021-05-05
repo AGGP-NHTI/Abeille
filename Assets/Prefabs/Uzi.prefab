@@ -48,8 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 8837004773045180445, guid: b799fbb8f16a4e3428b9cc1d6bc353c4, type: 3}
   BSpawn: {fileID: 6766673704041104706}
-  firedelay: 0.1
+  gunDamage: 2
   shot: {fileID: 6866444169151514255}
+  firedelay: 0.1
 --- !u!1 &3981369382697992747
 GameObject:
   m_ObjectHideFlags: 0

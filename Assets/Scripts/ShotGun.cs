@@ -11,8 +11,6 @@ public class ShotGun : Pistol
 
         Bullet bullet = Projectile.GetComponent<Bullet>();
 
-        gunDamage = 6;
-
         bullet.Damage = gunDamage;
 
         GameObject a = Instantiate(Projectile, BSpawn.transform.position, transform.rotation);
