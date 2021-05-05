@@ -123,7 +123,7 @@ public class Guy : MonoBehaviour
         activegun.transform.parent = GunHolder.transform;
         activegun.transform.localScale = new Vector3(1, 1, 1);
     }
-    public void updateShoe()
+    /*public void updateShoe()
     {
         Destroy(activeshoesL);
         Destroy(activeshoesR);
@@ -139,11 +139,12 @@ public class Guy : MonoBehaviour
         SR.sortingOrder = 1;
         SR = activeshoesL.GetComponent<SpriteRenderer>();
         SR.sortingOrder = 3;
-    }
+    }*/
+
     public void updateHolding()
     {
         //UPDATE EQUIPMENT
-        if (SwitchGun)
+        if (SwitchShoe)
         {
             if (shoeindex < 2)
             {
@@ -154,9 +155,9 @@ public class Guy : MonoBehaviour
                 shoeindex = 0;
             }
 
-            updateShoe();
+            //updateShoe();
         }
-        if (SwitchShoe)
+        if (SwitchGun)
         {
             if (gunindex < 3)
             {
@@ -190,14 +191,23 @@ public class Guy : MonoBehaviour
     {
         if(!Player2)
         {
-            Shoot = Input.GetButtonDown("Fire1");
+            if (gunindex == 3)
+            {
+                Shoot = Input.GetButton("Fire1");
+            }
+            else
+            {
+                Shoot = Input.GetButtonDown("Fire1");
+            }
+
             if (Shoot)
             {
                 Debug.Log(gameObject.name + " :: Player 1 shoot");
             }
+
             Kick = Input.GetButtonDown("Fire2");
-            SwitchGun = Input.GetButtonDown("Button1");
-            SwitchShoe = Input.GetButtonDown("Button2");
+            SwitchShoe = Input.GetButtonDown("Button1");
+            SwitchGun = Input.GetButtonDown("Button2");
             Jump = Input.GetButtonDown("Jump");
             Movement = Input.GetAxis("Horizontal");
             MouseX = Input.GetAxis("Mouse X");
@@ -206,14 +216,23 @@ public class Guy : MonoBehaviour
 
         if(Player2)
         {
-            Shoot = Input.GetButtonDown("P2Fire1");
-            if(Shoot)
+            if (gunindex == 3)
+            {
+                Shoot = Input.GetButton("P2Fire1");
+            }
+            else
+            {
+                Shoot = Input.GetButtonDown("P2Fire1");
+            }
+
+            if (Shoot)
             {
                 Debug.Log(gameObject.name + " :: Player 2 shoot");
             }
+
             Kick = Input.GetButtonDown("P2Fire2");
-            SwitchGun = Input.GetButtonDown("P2Button1");
-            SwitchShoe = Input.GetButtonDown("P2Button2");
+            SwitchShoe = Input.GetButtonDown("P2Button1");
+            SwitchGun = Input.GetButtonDown("P2Button2");
             Jump = Input.GetButtonDown("P2Jump");
             Movement = Input.GetAxis("P2Horizontal");
             MouseX = Input.GetAxis("P2Mouse X");

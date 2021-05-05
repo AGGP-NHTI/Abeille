@@ -10,7 +10,7 @@ public class Uzi : Pistol
     // Update is called once per frame
     public override void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= firetimer + firedelay)
+        if (Time.time >= firetimer + firedelay)
         {
             firetimer = Time.time;
             Fire();

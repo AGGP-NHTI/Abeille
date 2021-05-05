@@ -368,7 +368,7 @@ MonoBehaviour:
   facingV: {x: 1, y: 1, z: 1}
   JumpHeight: 275
   MoveSpeed: 15
-  KickKnockback: 100
+  KickKnockback: 8000
 --- !u!50 &2140982370425496316
 Rigidbody2D:
   serializedVersion: 4
