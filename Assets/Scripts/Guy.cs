@@ -180,7 +180,7 @@ public class Guy : MonoBehaviour
         }
         if (SwitchGun)
         {
-            if (gunindex < shoes.Count - 1)
+            if (gunindex < guns.Count - 1)
             {
                 gunindex += 1;
             }
