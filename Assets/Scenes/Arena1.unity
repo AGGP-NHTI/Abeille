@@ -1600,6 +1600,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 332761824, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
+      propertyPath: m_Text
+      value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 755087377, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
+      propertyPath: m_Name
+      value: Menu Button
+      objectReference: {fileID: 0}
     - target: {fileID: 4648632916507476147, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
       propertyPath: players.Array.size
       value: 2
@@ -1659,6 +1667,14 @@ PrefabInstance:
     - target: {fileID: 7438168059492528047, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438168059821758587, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2012fb9e8d4addb42b743770e099d3b0, type: 3}
+    - target: {fileID: 7438168059821758587, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
+      propertyPath: m_Volume
+      value: 0.219
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
