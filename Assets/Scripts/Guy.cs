@@ -59,10 +59,10 @@ public class Guy : MonoBehaviour
 
     Rigidbody2D RB;
 
-    ShoeBase feetinstance;
-
     public float JumpHeight;
     public float MoveSpeed;
+
+
     public float KickKnockback;
 
 

@@ -6,6 +6,8 @@ public class DoubleKickShoe : ShoeBase
 {
     bool doublekick;
     bool kicking;
+    public Foot foot;
+    float baseknockback;
 
     public override void Kick()
     {
@@ -45,10 +47,6 @@ public class DoubleKickShoe : ShoeBase
             foot2.transform.position = footHolder.transform.position;
             doublekick = false;
         }
-
-
-
-
 
 
         if (!doublekick)

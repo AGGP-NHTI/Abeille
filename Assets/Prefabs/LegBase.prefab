@@ -170,6 +170,7 @@ MonoBehaviour:
   kick: 0
   kickdelay: 0.2
   kicktimer: 0
+  foot: {fileID: 0}
 --- !u!1 &2456650470745441820
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +294,6 @@ GameObject:
   - component: {fileID: 4980562529803126466}
   - component: {fileID: 2456650470293223047}
   - component: {fileID: 2456650470293223040}
-  - component: {fileID: 5459972283246633374}
   m_Layer: 0
   m_Name: KickSpawn
   m_TagString: Untagged
@@ -345,20 +345,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   Knockback: 150
---- !u!114 &5459972283246633374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4980562529803126467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eee980ffef640ab4bb1b9439fe9a744d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 1
-  Knockback: 75
 --- !u!1 &4980562530629607829
 GameObject:
   m_ObjectHideFlags: 0
