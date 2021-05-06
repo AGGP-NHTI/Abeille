@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2140982370425496290, guid: 5f678dc7ba3cb9f4e998898327310821, type: 3}
+      propertyPath: healthDisplay
+      value: 
+      objectReference: {fileID: 1058129008}
+    - target: {fileID: 2140982370425496290, guid: 5f678dc7ba3cb9f4e998898327310821, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 326419854}
     - target: {fileID: 2140982370425496312, guid: 5f678dc7ba3cb9f4e998898327310821, type: 3}
       propertyPath: m_Name
       value: Guy2
@@ -849,6 +857,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90612134504da7841a14330b48a04880, type: 3}
+--- !u!114 &1058129008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5530149976957852089, guid: 620be5d464aaf514daecdf9930b5f8d5, type: 3}
+  m_PrefabInstance: {fileID: 295230940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1219688462 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5530149977707806572, guid: 620be5d464aaf514daecdf9930b5f8d5, type: 3}

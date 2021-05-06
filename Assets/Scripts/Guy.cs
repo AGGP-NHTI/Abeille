@@ -102,7 +102,6 @@ public class Guy : MonoBehaviour
 
             if (Shoot)
             {
-                Debug.Log(gameObject.name + " :: is Player 2 = " + Player2 + " :: Shoot =  " + Shoot);
                 Gun.Fire();
             }
 
@@ -202,12 +201,6 @@ public class Guy : MonoBehaviour
             {
                 Shoot = Input.GetButtonDown("Fire1");
             }
-
-            if (Shoot)
-            {
-                Debug.Log(gameObject.name + " :: Player 1 shoot");
-            }
-
             Kick = Input.GetButtonDown("Fire2");
             SwitchShoe = Input.GetButtonDown("Button1");
             SwitchGun = Input.GetButtonDown("Button2");
@@ -227,12 +220,6 @@ public class Guy : MonoBehaviour
             {
                 Shoot = Input.GetButtonDown("P2Fire1");
             }
-
-            if (Shoot)
-            {
-                Debug.Log(gameObject.name + " :: Player 2 shoot");
-            }
-
             Kick = Input.GetButtonDown("P2Fire2");
             SwitchShoe = Input.GetButtonDown("P2Button1");
             SwitchGun = Input.GetButtonDown("P2Button2");
@@ -242,10 +229,6 @@ public class Guy : MonoBehaviour
             MouseY = Input.GetAxis("P2Mouse Y");
         }
     }
-
-
-
-
 
     public void UpdateArmsandFacing()
     {
