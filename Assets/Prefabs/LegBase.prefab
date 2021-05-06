@@ -170,7 +170,7 @@ MonoBehaviour:
   kick: 0
   kickdelay: 0.2
   kicktimer: 0
-  foot: {fileID: 0}
+  foot: {fileID: 2456650470293223040}
 --- !u!1 &2456650470745441820
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
-  Knockback: 150
+  Knockback: 400
 --- !u!1 &4980562530629607829
 GameObject:
   m_ObjectHideFlags: 0

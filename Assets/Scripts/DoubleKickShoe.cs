@@ -9,6 +9,11 @@ public class DoubleKickShoe : ShoeBase
     public Foot foot;
     float baseknockback;
 
+    protected override void Start()
+    {
+        baseknockback = foot.Knockback;
+    }
+
     public override void Kick()
     {
         kicktimer = Time.time;
@@ -20,6 +25,7 @@ public class DoubleKickShoe : ShoeBase
     {
         if (kick)
         {
+            foot.Knockback = 0 - foot.Knockback;
             kickspawn.SetActive(true);
             foot2.transform.position = kickspawn.transform.position;
         }
@@ -35,6 +41,7 @@ public class DoubleKickShoe : ShoeBase
 
         if (doublekick && !kicking && !kick && Time.time >= kicktimer + kickdelay)
         {
+            foot.Knockback = baseknockback;
             kickspawn.SetActive(true);
             kicking = true;
             foot2.transform.position = kickspawn.transform.position;

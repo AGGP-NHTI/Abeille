@@ -6,7 +6,8 @@ public class LungeShoe : ShoeBase
 {
     public Vector2 lunge;
     Rigidbody2D RB;
-    public void Start()
+
+    protected override void Start()
     {
         RB = guy.gameObject.GetComponent<Rigidbody2D>();
     }
