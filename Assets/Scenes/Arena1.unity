@@ -1628,6 +1628,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 332761824, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
+      propertyPath: m_Text
+      value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 755087377, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
+      propertyPath: m_Name
+      value: Menu Button
+      objectReference: {fileID: 0}
     - target: {fileID: 4648632916507476147, guid: d03151ff9a318ac48895e9b2b58aa070, type: 3}
       propertyPath: players.Array.data[0]
       value: 
