@@ -48,7 +48,7 @@ public class Guy : MonoBehaviour
 
     public Vector3 BSpawnLocal;
 
-    Vector3 facingH = Vector3.one;
+    public Vector3 facingH = Vector3.one;
     public Vector3 facingV = Vector3.one;
 
     Rigidbody2D RB;
@@ -111,8 +111,9 @@ public class Guy : MonoBehaviour
                 Shoes.Kick();
             }
         }
-
     }
+
+
 
 
     //HANDLES EQUIPMENT SWITCH
@@ -180,9 +181,11 @@ public class Guy : MonoBehaviour
         }
 
         RB.AddForce(new Vector2(MoveSpeed * Movement, 0));
+
         if (Movement != 0)
         {
-            feetinstance.Walk(ShoePrefab, 1 * facingH.x);
+            //Rotate Feet
+            feetinstance.Walk(ShoePrefab, -(facingH.x * Movement));
         }
     }
 
