@@ -98,7 +98,7 @@ public class Guy : MonoBehaviour
             getInputs();
             UpdateArmsandFacing();
             updateHolding();
-            UpdateMovement();
+            CheckJump();
 
             if (Shoot)
             {
@@ -110,6 +110,12 @@ public class Guy : MonoBehaviour
                 Shoes.Kick();
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateMovement();
+        Walk();
     }
 
 
@@ -172,19 +178,27 @@ public class Guy : MonoBehaviour
         }
     }
 
-    public void UpdateMovement()
+    public void CheckJump()
     {
+
         if (Jump && IsGrounded())
         {
             RB.AddForce(new Vector2(0, JumpHeight));
         }
+    }
+
+    public void UpdateMovement()
+    {
 
         RB.AddForce(new Vector2(MoveSpeed * Movement, 0));
-
+    }
+    
+    public void Walk()
+    {
         if (Movement != 0)
         {
             //Rotate Feet
-            feetinstance.Walk(ShoePrefab, -(facingH.x * Movement));
+            feetinstance.Walk(ShoePrefab, -(facingH.x * Movement) * 3);
         }
     }
 
