@@ -159,7 +159,6 @@ public class Guy : MonoBehaviour
         SR.sortingOrder = 1;
         SR = activeshoesL.GetComponent<SpriteRenderer>();
         SR.sortingOrder = 3;
-        //Debug.Break();
     }
 
     public void updateHolding()
@@ -319,7 +318,7 @@ public class Guy : MonoBehaviour
         }
     }
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.1f, groundLayer);
         Debug.DrawRay(col.bounds.center, Vector2.down * (col.bounds.extents.y + 0.1f), rayColor);

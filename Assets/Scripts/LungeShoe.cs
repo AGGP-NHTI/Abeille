@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LungeShoe : MonoBehaviour
+public class LungeShoe : ShoeBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public Vector2 lunge;
+    Rigidbody2D RB;
+    public void Start()
     {
-        
+        RB = guy.gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Kicking()
     {
-        
+        if (kick && guy.IsGrounded())
+        {
+            RB.AddForce(new Vector2( lunge.x * guy.facingH.x, lunge.y));
+        }
+        base.Kicking();
     }
 }
