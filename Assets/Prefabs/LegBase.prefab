@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
-  Knockback: 400
+  Knockback: 200
 --- !u!1 &4980562530629607829
 GameObject:
   m_ObjectHideFlags: 0
