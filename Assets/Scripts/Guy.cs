@@ -17,6 +17,7 @@ public class Guy : MonoBehaviour
 
     public Text healthDisplay;
 
+
     public GameObject Head;
     public GameObject Arms;
     public GameObject Hand;
@@ -24,22 +25,27 @@ public class Guy : MonoBehaviour
     public GameObject Legs;
     public GameObject legaimer;
     public GameObject ShoePrefab;
-    ShoeBase Shoes;
+    public ShoeBase Shoes;
     public GameObject GunPrefab;
 
 
     public GameObject GunHolder;
     public List<GameObject> guns;
     public GameObject activegun;
-    Pistol Gun;
+    public Pistol Gun;
     public int gunindex;
 
-    public GameObject ShoeHolderL;
-    public GameObject ShoeHolderR;
+    //public GameObject ShoeHolderL;
+    //public GameObject ShoeHolderR;
+
+    public GameObject LegsHolder;
+    public GameObject ActiveShoes;
     public List<GameObject> shoes;
+    public int shoeindex;
+
+
     public GameObject activeshoesL;
     public GameObject activeshoesR;
-    public int shoeindex;
 
     public LayerMask groundLayer;
     public Color rayColor;
@@ -75,7 +81,7 @@ public class Guy : MonoBehaviour
     {
         RB = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<CapsuleCollider2D>();
-        feetinstance = ShoePrefab.GetComponent<ShoeBase>();
+        Shoes = ActiveShoes.GetComponent<ShoeBase>();
     }
 
     private void Awake()
@@ -90,7 +96,7 @@ public class Guy : MonoBehaviour
     {
         col.enabled = true;
         Gun = activegun.GetComponent<Pistol>();
-        Shoes = ShoePrefab.GetComponent<ShoeBase>();
+        Shoes = ActiveShoes.GetComponent<ShoeBase>();
 
 
         if(!Dummy)
@@ -129,30 +135,39 @@ public class Guy : MonoBehaviour
         activegun.transform.parent = GunHolder.transform;
         activegun.transform.localScale = new Vector3(1, 1, 1);
     }
-    /*public void updateShoe()
+
+    public void updateShoe()
     {
-        Destroy(activeshoesL);
-        Destroy(activeshoesR);
-        activeshoesL = Instantiate(shoes[shoeindex], ShoeHolderL.transform.position, ShoeHolderL.transform.rotation);
-        activeshoesR = Instantiate(shoes[shoeindex], ShoeHolderR.transform.position, ShoeHolderR.transform.rotation);
-        activeshoesL.transform.parent = ShoeHolderL.transform;
-        activeshoesR.transform.parent = ShoeHolderR.transform;
-        activeshoesL.transform.localScale = new Vector3(5, 5, 1);
-        activeshoesR.transform.localScale = new Vector3(5, 5, 1);
+        Destroy(ActiveShoes);
+        ActiveShoes = Instantiate(shoes[shoeindex], LegsHolder.transform.position, LegsHolder.transform.rotation);
+        ActiveShoes.transform.parent = LegsHolder.transform;
+        ActiveShoes.transform.localScale = new Vector3(.5f, .5f, 1);
+
+        Shoes = ActiveShoes.GetComponent<ShoeBase>();
+        Shoes.guy = gameObject.GetComponent<Guy>();
+
+        activeshoesR = Shoes.foot1;
+        activeshoesL = Shoes.foot2;
+        legaimer = Shoes.legs;
+        Legs = Shoes.FeetRoot;
+        ShoePrefab = Shoes.ShoeExample;
+
+
 
         SpriteRenderer SR;
         SR = activeshoesL.GetComponent<SpriteRenderer>();
         SR.sortingOrder = 1;
         SR = activeshoesL.GetComponent<SpriteRenderer>();
         SR.sortingOrder = 3;
-    }*/
+        //Debug.Break();
+    }
 
     public void updateHolding()
     {
         //UPDATE EQUIPMENT
         if (SwitchShoe)
         {
-            if (shoeindex < 2)
+            if (shoeindex < shoes.Count - 1)
             {
                 shoeindex += 1;
             }
@@ -161,11 +176,11 @@ public class Guy : MonoBehaviour
                 shoeindex = 0;
             }
 
-            //updateShoe();
+            updateShoe();
         }
         if (SwitchGun)
         {
-            if (gunindex < 3)
+            if (gunindex < shoes.Count - 1)
             {
                 gunindex += 1;
             }
@@ -198,7 +213,7 @@ public class Guy : MonoBehaviour
         if (Movement != 0)
         {
             //Rotate Feet
-            feetinstance.Walk(ShoePrefab, -(facingH.x * Movement) * 3);
+            Shoes.Walk(ShoePrefab, -(facingH.x * Movement) * 3);
         }
     }
 

@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class DoubleKickShoe : ShoeBase
 {
-    public bool doublekick;
+    bool doublekick;
+    bool kicking;
+
     public override void Kick()
     {
-        if (Input.GetButtonDown("Fire2") && (kick == false && doublekick == false))
-        {
-            kicktimer = Time.time;
-            kick = true;
-            doublekick = true;
-        }
+        kicktimer = Time.time;
+        kick = true;
+        doublekick = true;
+    }
 
-
-
-
+    public override void Kicking()
+    {
         if (kick)
         {
             kickspawn.SetActive(true);
             foot2.transform.position = kickspawn.transform.position;
         }
-        if (kick && Time.time >= kicktimer + kickdelay)
+
+        if (kick && (Time.time >= kicktimer + kickdelay))
         {
             foot2.transform.position = footHolder.transform.position;
             kick = false;
@@ -31,13 +31,17 @@ public class DoubleKickShoe : ShoeBase
 
 
 
-        if (doublekick && !kick && Time.time >= kicktimer + kickdelay)
+        if (doublekick && !kicking && !kick && Time.time >= kicktimer + kickdelay)
         {
             kickspawn.SetActive(true);
+            kicking = true;
             foot2.transform.position = kickspawn.transform.position;
+            kicktimer = Time.time;
         }
-        if ((doublekick && !kick) && Time.time >= kicktimer + (kickdelay * 2))
+        
+        if ((doublekick && !kick) && Time.time >= kicktimer + kickdelay)
         {
+            kicking = false;
             foot2.transform.position = footHolder.transform.position;
             doublekick = false;
         }

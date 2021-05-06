@@ -7,6 +7,9 @@ public class ShoeBase : MonoBehaviour
     public GameObject foot1;
     public GameObject foot2;
     public Guy guy;
+    public GameObject legs;
+    public GameObject FeetRoot;
+    public GameObject ShoeExample;
 
     public GameObject kickspawn;
     public GameObject footHolder;
