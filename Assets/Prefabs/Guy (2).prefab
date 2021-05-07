@@ -349,6 +349,7 @@ MonoBehaviour:
   shoes:
   - {fileID: 1132482229042963726, guid: bfbc5cce8335fe140b9b38e12b92556a, type: 3}
   - {fileID: 2456650470046119740, guid: 237c6e443eb77514795580c0ebe67f1e, type: 3}
+  - {fileID: 2701302337070572624, guid: 38066964d8429d545b9f6a2cddf99d1e, type: 3}
   shoeindex: 0
   activeshoesL: {fileID: 521485656662467733}
   activeshoesR: {fileID: 3122706940859513317}
