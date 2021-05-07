@@ -8,6 +8,7 @@ public class EndGame : MonoBehaviour
 {
     public Text winner;
     public GameObject exitButton;
+    public GameObject panel;
 
     public Guy[] players;
 
@@ -24,6 +25,7 @@ public class EndGame : MonoBehaviour
 
         winner.enabled = false;
         exitButton.SetActive(false);
+        panel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -53,6 +55,7 @@ public class EndGame : MonoBehaviour
         Debug.Log("End");
         winner.enabled = true;
         exitButton.SetActive(true);
+        panel.SetActive(true);
         Time.timeScale = 0;
     }
 }
